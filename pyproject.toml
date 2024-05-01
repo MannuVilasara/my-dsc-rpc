@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "my-fetch"
+name = "my-dcs-rpc"
 version = "0.1.0"
 description = "my personal presence script for discord"
 authors = ["MannuVilasara <mannuvilasara@gmail.com>"]
