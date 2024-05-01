@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "my-fetch"
 version = "0.1.0"
-description = ""
+description = "my personal presence script for discord"
 authors = ["MannuVilasara <mannuvilasara@gmail.com>"]
+license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -11,6 +12,8 @@ pypresence = "^4.3.0"
 psutil = "^5.9.8"
 colorama = "^0.4.6"
 
+[tool.poetry.group.dev.dependencies]
+black = "pylint"
 
 [build-system]
 requires = ["poetry-core"]

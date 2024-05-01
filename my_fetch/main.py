@@ -1,6 +1,6 @@
 from pypresence import Presence
 from time import sleep, time
-from utils import get_memory_usage,get_cpu_usage, songinfo, get_system_uptime
+from src.utils import get_memory_usage,get_cpu_usage, songinfo, get_system_uptime
 from colorama import Fore, Style
 
 presence = Presence("1235105826016858143")
