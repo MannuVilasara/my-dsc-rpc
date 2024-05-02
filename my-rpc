@@ -1,1 +1,3 @@
+#!/usr/bin/bash
+
 python3 /usr/share/my-dsc-rpc/main.py
