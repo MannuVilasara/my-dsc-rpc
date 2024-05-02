@@ -8,6 +8,9 @@ presence.connect()
 
 while True:
     info = songinfo()
+    big_img = info["artUrl"]
+    if info["status"] == "Stopped":
+        big_img = "https://github.com/MannuVilasara/Minimal-Fetch/blob/main/logos/arch/logo-big.png?raw=true"
     details = f"▶️ {info['title']}"
     if info["status"] == "Paused":
         details = f"⏸️ {info['title']}"
@@ -17,7 +20,7 @@ while True:
     presence.update(
         state=f"💻 CPU {get_cpu_usage()}%, RAM {get_memory_usage()['used_memory']}/{get_memory_usage()['total_memory']} GB | {get_memory_usage()["memory_percent"]}% used",
         details=details,
-        large_image=info["artUrl"],
+        large_image=big_img,
         large_text=large_text,
         small_image="https://avatars.githubusercontent.com/u/107882187?s=200&v=4",
         small_text=f"Hyprland | the current song is {info['title']} by {info['artist']}. My laptop has been up for {str(get_system_uptime())[0]}hr and {str(get_system_uptime())[2:4]}min",
