@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+
+
+sudo cp -r my-dsc-rpc /usr/share
+chmod +x my-rpc
+
+sudo cp my-rpc /usr/bin
+
