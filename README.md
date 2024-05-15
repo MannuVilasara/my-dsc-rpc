@@ -5,7 +5,7 @@
 ## I USE ARCH BTW
 
 
-to use it make sure you have these dependencies installed `python-pypresence`,`python-psutil`,`python-colorama`.
+to use it make sure you have these dependencies installed `python-pypresence`,`python-psutil`,`python-colorama`, `playerctl`.
 
 you can test the script by creating vritual environment and running the following command to install the required dependencies in the vritual environment.
 ```bash
