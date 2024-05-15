@@ -32,7 +32,10 @@ while True:
         large_text=large_text,
         small_image="https://avatars.githubusercontent.com/u/107882187?s=200&v=4",
         small_text=f"Hyprland | the current song is {info['title']} by {info['artist']}. My laptop has been up for {hours}hr and {minutes}min",
-        buttons=[{"label": "Install Arch", "url": "https://archlinux.org"},{"label": "Github", "url": "https://github.com/MannuVilasara"}],
+        buttons=[
+            {"label": "Install Arch", "url": "https://archlinux.org"},
+            {"label": "Github", "url": "https://github.com/MannuVilasara"},
+        ],
     )
     print(
         f"=> {Fore.MAGENTA}INFO:{Style.RESET_ALL} {Fore.CYAN}[ARCH-LINUX]{Style.RESET_ALL} (archbtw)| Uptime: {uptime}, {Fore.RED}CPU: {cpu}%{Style.RESET_ALL}, {mem_usage['memory_percent']}% mem used."
