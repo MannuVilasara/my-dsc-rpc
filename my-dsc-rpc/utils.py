@@ -65,11 +65,18 @@ def songinfo():
         return None
     if _is_playing == "Paused":
         status = "Paused"
-    return {
-        "status": status,
-        "artist": run_command("playerctl metadata artist"),
-        "title": run_command("playerctl metadata title"),
-        "artUrl": run_command("playerctl metadata mpris:artUrl"),
-        "track": run_command("playerctl metadata xesam:url"),
-        # 'duration': run_command("playerctl metadata --format '{{ duration(position) }}/{{ duration(mpris:length) }}'")
-    }
+    try:
+        return {
+                "status": status,
+                "artist": run_command("playerctl metadata artist"),
+                "title": run_command("playerctl metadata title"),
+                "artUrl": run_command("playerctl metadata mpris:artUrl"),
+                # "track": run_command("playerctl metadata xesam:url"),
+                # 'duration': run_command("playerctl metadata --format '{{ duration(position) }}/{{ duration(mpris:length) }}'")
+            }
+    except:
+        return {
+            "status": status,
+            "artist": run_command("playerctl metadata artist"),
+            "title": run_command("playerctl metadata title"),
+        }

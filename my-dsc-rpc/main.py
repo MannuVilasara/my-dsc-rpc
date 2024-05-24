@@ -12,8 +12,8 @@ while True:
     cpu = get_cpu_usage()
     info = songinfo()
     big_img = info["artUrl"]
-    if info["status"] == "Stopped":
-        big_img = "https://github.com/MannuVilasara/Minimal-Fetch/blob/main/logos/arch/logo-big.png?raw=true"
+    if info["status"] == "Stopped" or big_img == None or big_img[0:8] == "file:///":
+        big_img = "https://avatars.githubusercontent.com/u/117009138?s=400&u=7689c5d0450e6808a28847c6cb9eaef672ed7300&v=4"
     details = f"▶️ {info['title']}"
     if info["status"] == "Paused":
         details = f"⏸️ {info['title']}"
@@ -38,6 +38,6 @@ while True:
         ],
     )
     print(
-        f"=> {Fore.MAGENTA}INFO:{Style.RESET_ALL} {Fore.CYAN}[ARCH-LINUX]{Style.RESET_ALL} (archbtw)| Uptime: {uptime}, {Fore.RED}CPU: {cpu}%{Style.RESET_ALL}, {mem_usage['memory_percent']}% mem used."
+        f"=> {Fore.MAGENTA}INFO:{Style.RESET_ALL} {Fore.CYAN}[ARCH-LINUX]{Style.RESET_ALL} {Fore.YELLOW}(archbtw){Style.RESET_ALL}| Uptime: {hours + ":" + minutes}, {Fore.RED}CPU: {cpu}%{Style.RESET_ALL}, {Fore.GREEN}{mem_usage['memory_percent']}% mem used.{Style.RESET_ALL}"
     )
-    sleep(15)
+    # sleep(15)
