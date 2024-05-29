@@ -2,6 +2,7 @@ import subprocess
 import sys
 import psutil
 import datetime
+import json
 
 
 def get_system_uptime():
@@ -61,22 +62,14 @@ def get_memory_usage():
 def songinfo():
     status = "Playing"
     _is_playing = run_command("playerctl status")
+    info = json.loads(
+        run_command(
+            """playerctl metadata --format \'{ \"artist\": \"{{artist}}\", \"title\": \"{{title}}\", \"artUrl\": \"{{mpris:artUrl}}\" }\'"""
+        )
+    )
     if _is_playing == "Stopped":
         return None
     if _is_playing == "Paused":
         status = "Paused"
-    try:
-        return {
-                "status": status,
-                "artist": run_command("playerctl metadata artist"),
-                "title": run_command("playerctl metadata title"),
-                "artUrl": run_command("playerctl metadata mpris:artUrl"),
-                # "track": run_command("playerctl metadata xesam:url"),
-                # 'duration': run_command("playerctl metadata --format '{{ duration(position) }}/{{ duration(mpris:length) }}'")
-            }
-    except:
-        return {
-            "status": status,
-            "artist": run_command("playerctl metadata artist"),
-            "title": run_command("playerctl metadata title"),
-        }
+    info["status"] = status
+    return info

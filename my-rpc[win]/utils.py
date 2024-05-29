@@ -2,10 +2,9 @@ import asyncio
 import psutil
 import datetime
 
-from winrt.windows.media.control import \
-    GlobalSystemMediaTransportControlsSessionManager as MediaManager
-
-
+from winrt.windows.media.control import (
+    GlobalSystemMediaTransportControlsSessionManager as MediaManager,
+)
 
 
 def get_system_uptime():
@@ -47,21 +46,24 @@ async def get_media_info():
     if current_session:
         if current_session.source_app_user_model_id:
             info = await current_session.try_get_media_properties_async()
-            info_dict = {song_attr: info.__getattribute__(song_attr) for song_attr in dir(info) if song_attr[0] != '_'}
+            info_dict = {
+                song_attr: info.__getattribute__(song_attr)
+                for song_attr in dir(info)
+                if song_attr[0] != "_"
+            }
 
-            info_dict['genres'] = list(info_dict['genres'])
+            info_dict["genres"] = list(info_dict["genres"])
 
             return info_dict
 
-    raise Exception('TARGET_PROGRAM is not the current media session')
-
+    raise Exception("TARGET_PROGRAM is not the current media session")
 
 
 def songinfo():
     current_media_info = asyncio.run(get_media_info())
     status = "Playing"
     return {
-            "status": status,
-            "artist":  current_media_info["artist"],
-            "title": current_media_info["title"]
-        }
+        "status": status,
+        "artist": current_media_info["artist"],
+        "title": current_media_info["title"],
+    }
